@@ -41,3 +41,7 @@ gem 'spring',        group: :development
 gem 'simple_form'
 
 gem 'devise'
+
+gem 'country_select'
+
+gem "paperclip", "~> 4.2"

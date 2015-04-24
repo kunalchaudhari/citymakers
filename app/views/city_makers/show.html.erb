@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-5">
+    <%= image_tag @city_maker.avatar.url(:original), class: "img-thumbnail" %>
+  </div>
+
+  <div class="col-md-7">
+    <h2 style="margin-top:0 ;"><%= @city_maker.name %></h2>
+    <p>
+      Category: <%= link_to @city_maker.category.name, @city_maker.category %>
+    </p>
+    <%= simple_format @city_maker.description %>
+    <hr />
+    <p>
+      <%= @city_maker.address1 %><br />
+      <%= @city_maker.address2 %><br />
+      <%= @city_maker.city %>, <%= @city_maker.state %>. <%= @city_maker.country %>
+    </p>
+    <p>
+      Phone: <%= @city_maker.phone %>
+    </p>
+    <hr />
+    <p>
+      Timinis: <%= @city_maker.timings %>
+    </p>
+    <hr />
+
+    <%= simple_format @city_maker.note %>
+
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_city_maker_path(@city_maker) %> |
+<%= link_to 'Back', city_makers_path %>
