@@ -23,6 +23,8 @@
           <%= flash[:alert] %>
         </div>
       <% end %>
+      <%= content_tag :div, "Sign in to add city maker", class: "alert alert-info" unless user_signed_in? %>
+      
       <%= yield %>
     </div>
 

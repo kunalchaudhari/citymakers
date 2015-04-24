@@ -18,7 +18,7 @@
 
     <br>
 
-    <%= link_to 'New City maker', new_city_maker_path, class: "btn btn-default" %>
+    <%= link_to 'New City maker', new_city_maker_path, class: "btn btn-default" if user_signed_in? %>
 
   </div>
 

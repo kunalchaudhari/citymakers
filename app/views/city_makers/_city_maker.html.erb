@@ -16,6 +16,7 @@
     <p>
       Category: <%= link_to city_maker.category.name, city_maker.category %>
     </p>
+    <% if user_signed_in? %>
     <hr />
     <small>
       <ul class="list-inline">
@@ -24,6 +25,7 @@
         <li><%= link_to 'Destroy', city_maker, method: :delete, data: { confirm: 'Are you sure?' } %></li>
       </ul>
     </small>
+    <% end %>
   </div>
 </div>
 <hr />

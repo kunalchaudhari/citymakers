@@ -11,17 +11,22 @@
             <%= category.name %>
           </h2>
         </a>
-        <ul class="list-inline">
-          <li>
-            <%= link_to 'Show', category %>
-          </li>
-          <li>
-            <%= link_to 'Edit', edit_category_path(category) %>
-          </li>
-          <li>
-            <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </li>
-        </ul>
+        
+        <% if user_signed_in? %>
+        <small>
+          <ul class="list-inline">
+            <li>
+              <%= link_to 'Show', category %>
+            </li>
+            <li>
+              <%= link_to 'Edit', edit_category_path(category) %>
+            </li>
+            <li>
+              <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } if current_user.admin? %>
+            </li>
+          </ul>
+        </small>
+        <% end %>
       </div>
     <% end %>
     </div>
@@ -30,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path, class: "btn btn-default" %>
+<%= link_to 'New Category', new_category_path, class: "btn btn-default" if user_signed_in? %>
