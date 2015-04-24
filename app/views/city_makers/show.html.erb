@@ -28,6 +28,12 @@
 
   </div>
 </div>
+<h3>
+  <a href="javascript:void(0)" class="show_map" data-citymaker="<%= @city_maker.to_json %>"  style="text-decoration: underline;">View map</a>
+</h3>
+<div style="width:100%; height: 500px;" id="map_canvas">
+  
+</div>
 
 <%= link_to 'Edit', edit_city_maker_path(@city_maker) %> |
 <%= link_to 'Back', city_makers_path %>

@@ -7,8 +7,9 @@ $(document).on('ready page:load', function() {
 
   $('.show_map').on('click', function() {
     $(this).hide();
-    showMap($(this).data('loo'));
+    showMap($(this).data('citymaker'));
   });
+
 });
 
 function initiate_geolocation() {
@@ -17,14 +18,14 @@ function initiate_geolocation() {
 
 function handle_geolocation_query(position){
   if($('#location_section').length) {
-    $('#loo_lat').val(position.coords.latitude);
-    $('#loo_lng').val(position.coords.longitude);
+    $('#city_maker_lat').val(position.coords.latitude);
+    $('#city_maker_lng').val(position.coords.longitude);
   }
 }
 
-function showMap(loo) {
+function showMap(city_maker) {
   var mapCanvas = document.getElementById('map_canvas');
-  var myLatlng = new google.maps.LatLng(loo.lat, loo.lng)
+  var myLatlng = new google.maps.LatLng(city_maker.lat, city_maker.lng)
   var mapOptions = {
     center: myLatlng,
     zoom: 8,
@@ -33,7 +34,10 @@ function showMap(loo) {
   }
   var map = new google.maps.Map(mapCanvas, mapOptions)
 
-  var contentString = '<h4>' + loo.name + '</h4>' + '<p>' + loo.location_name + '</p>';
+  var contentString = '<h4>' + city_maker.name + '</h4>' + 
+                      '<p>' + city_maker.location_name + '</p>' +
+                      '<p>' + city_maker.phone + '</p>' + 
+                      '<p><hr/>Timings: ' + city_maker.timings + '</p>';
 
   var infowindow = new google.maps.InfoWindow({
     content: contentString
@@ -42,11 +46,7 @@ function showMap(loo) {
   var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
-    title: loo.name
+    title: city_maker.name
   });
-
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-  });
-
+  infowindow.open(map,marker);
 }

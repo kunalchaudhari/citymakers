@@ -77,6 +77,6 @@ class CityMakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_maker_params
-      params.require(:city_maker).permit(:name, :description, :lat, :lng, :address1, :address2, :city, :state, :country, :phone, :timings, :note, :avatar, :category_id)
+      params.require(:city_maker).permit(:location_name, :name, :description, :lat, :lng, :address1, :address2, :city, :state, :country, :phone, :timings, :note, :avatar, :category_id)
     end
 end
