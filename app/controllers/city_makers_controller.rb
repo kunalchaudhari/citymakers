@@ -5,16 +5,19 @@ class CityMakersController < ApplicationController
   # GET /city_makers.json
   def index
     @city_makers = CityMaker.all
+    @title = "CiyMakers (#{@city_makers.size})"
   end
 
   def search
     @city_makers = CityMaker.search(params[:q])
+    @title = "Search - \"#{params[:q]}\" (#{@city_makers.size})"
     render :index
   end
 
   # GET /city_makers/1
   # GET /city_makers/1.json
   def show
+    @title = @city_maker.name
   end
 
   # GET /city_makers/new

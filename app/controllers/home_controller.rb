@@ -3,5 +3,6 @@ class HomeController < ApplicationController
   end
 
   def contact
+    @title = "Contact"
   end
 end
