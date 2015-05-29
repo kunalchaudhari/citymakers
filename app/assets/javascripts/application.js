@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.geocomplete
+//= require star-rating
 //= require_tree .

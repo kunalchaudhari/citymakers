@@ -18,6 +18,9 @@ class CityMakersController < ApplicationController
   # GET /city_makers/1.json
   def show
     @title = @city_maker.name
+    @review = Review.new
+    @review.city_maker_id = @city_maker.id
+    @review.user_id = current_user.id if user_signed_in?
   end
 
   # GET /city_makers/new

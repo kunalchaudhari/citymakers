@@ -11,5 +11,6 @@
  * file per style scope.
  *
  *= require all
+ *= require star-rating
  *= require_self
  */

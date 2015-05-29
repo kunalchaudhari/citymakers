@@ -1,5 +1,6 @@
 class CityMaker < ActiveRecord::Base
   belongs_to :category
+  has_many :reviews
   
   validates :location_name, :name, :address1, :address2, :phone, :lat, :lng, :city, :state, :country, presence: true
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

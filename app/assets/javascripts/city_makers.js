@@ -7,6 +7,7 @@ $(document).on('ready page:load', function() {
 
   $('.show_map').on('click', function() {
     $(this).hide();
+    $('#map_canvas').show();
     showMap($(this).data('citymaker'));
   });
 
